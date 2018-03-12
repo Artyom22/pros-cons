@@ -1,0 +1,15 @@
+<div class="d-flex justify-content-start flex-column p-5">
+  <h1>{{ type === 'pros' ? 'Pros' : 'Cons' }}</h1>
+  <div class="d-flex justify-content-center flex-column" [@prosConsAnimate]="prosesConses.length">
+    <div *ngFor="let pros of prosesConses; let i = index" class="d-flex justify-content-start align-items-center flex-row border" >
+      <span class="p-2 text-center w-25">{{ i + 1 }}</span>
+      <span class="p-2 text-center w-25">{{ pros.title }}</span>
+      <span class="p-2 text-center w-25">{{ pros.description }}</span>
+      <button class="btn btn-warning m-2 w-25" (click)="editProsCons(i)">Edit</button>
+      <button class="btn btn-danger m-2 w-25" (click)="removeProsCons(i)">Remove</button>
+    </div>
+  </div>
+  <app-add-pros-cons *ngIf="!edit"></app-add-pros-cons>
+  <app-edit-pros-cons *ngIf="edit" [currentProsCons]="currentProsCons"
+                      [data]="prosesConses[currentProsCons]" (editCanceled)="OnOffEdit()"></app-edit-pros-cons>
+</div>

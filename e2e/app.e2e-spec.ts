@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('pros-cons App', () => {
+describe('pros-cons-cons App', () => {
   let page: AppPage;
 
   beforeEach(() => {
